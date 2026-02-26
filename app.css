@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' , sans-serif;
+
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #111;
+}
+.wrapper{
+    position: relative;
+  height: 500px;
+  width: 450px;
+
+}
+.wrapper img{
+    position: absolute;
+    height: 400px;
+    width: 350px;
+    margin-top: -50px;
+    transition: 0.4s ease;
+}
+.wrapper label{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.wrapper label span{
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: block;
+    border: 2px solid #fff;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 48px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#btn:checked ~ label span::before {
+    content: "Turn OFF";
+}
+.wrapper label span:hover{
+    background-color: #fff;
+    color: #111;
+
+
+}
+.wrapper img#Bulb-ON{
+    opacity: 0;
+}
+@keyframes glow{
+    0%{
+        opacity: 1;
+    }
+    5%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 1;
+    }
+    74%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    84%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#btn:checked ~ img#Bulb-ON {
+    opacity: 1;
+}
+.wrapper label span::before{
+    content: "Turn ON";
+}
+#btn:checked ~ img#Bulb-off {
+    opacity: 0;
+}
+.wrapper input{
+    display: none;
+}
+
+.wrapper::before{
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255,223,100,0.7) 0%, rgba(255,200,0,0.4) 40%, transparent 70%);
+    opacity: 0;
+    transition: 0.4s ease;
+    z-index: -1;
+}
+
+#btn:checked ~ img#Bulb-ON {
+    opacity: 1;
+    filter:
+        drop-shadow(0 0 15px #ffd54f)
+        drop-shadow(0 0 35px #ffca28)
+        drop-shadow(0 0 60px #ffb300);
+}
+
+#btn:checked ~ img#Bulb-off {
+    opacity: 0;
+}
+
+#btn:checked ~ .wrapper::before {
+    opacity: 1;
+}
